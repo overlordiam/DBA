@@ -3,6 +3,7 @@ import "./SignUp.scss";
 import {useHistory} from "react-router-dom";
 import Axios from "axios";
 import {auth} from "./firebase";
+import npmDate from 'date-and-time';
 
 import CustomButton from "./Custom-Button"
 
@@ -10,18 +11,27 @@ import CustomButton from "./Custom-Button"
 function SignUp() {
   const history = useHistory();
    const [email, setEmail] = useState("");
-   
     const [userName, setUserName] = useState("");
     const [address, setAddress] = useState("");
     const [pnumber, setPNumber] = useState('');
 
-const register = async (e) => {
+    var now = new Date();
+    var date1 = (npmDate.format(now, 'YYYY-MM-DD'));
+  
+  
+const register =  (e) => {
+
+  
+    console.log(date1);
+
   Axios.post("http://localhost:8090/signup",
    {email: email,
    address: address,
    userName: userName,
-   pnumber: pnumber 
-  })
+   pnumber: pnumber ,
+   date: date1,
+  }); 
+
   
    
    e.preventDefault();

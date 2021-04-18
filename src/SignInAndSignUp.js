@@ -22,12 +22,7 @@ function SignInAndSignUp() {
 
   return (
     <div>
-      <h2 style={{paddingLeft: "27%",paddingTop: "3%", position:"absolute"}}>
-        We proudly say that we have <span style={{fontWeight: "bold",color: "black"}}>{count}</span> active users
-      </h2>
-  
-      
-
+    
 
 <div className="SignInAndSignUp row">
       <div className="col">

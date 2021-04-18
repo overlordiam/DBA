@@ -67,10 +67,10 @@ app.post("/emptyCartItem",async (req, res) => {
 
 //signup
 app.post("/signup",async (req, res) => {
-const {email,address,pnumber,userName} =req.body;
+const {email,address,pnumber,userName,date} = req.body;
 
-   await Query(`INSERT INTO user ( user_name, email, address, phone_num) VALUES 
-   ('${userName}', '${email}', '${address}', ${pnumber} )`)
+   await Query(`INSERT INTO user (user_name, email, address, phone_num, date) VALUES 
+   ('${userName}', '${email}', '${address}', '${pnumber}', '${date}')`)
 });
 
 
@@ -79,6 +79,13 @@ app.post("/cart", async (req,res) => {
    const productId = req.body.productId;
    await Query(`INSERT INTO cart (product_id) VALUES ('${productId}')`)
    
+});
+
+//sales
+app.post("/sales", async (req,res) => {
+   const {productId, date} = req.body;
+   await Query(`INSERT INTO sales (product_id, date) VALUES ('${productId}', '${date}')`)
+
 });
 
 var port = process.env.PORT || 8090;

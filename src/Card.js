@@ -3,6 +3,8 @@ import "./Card.css";
 import { useStateValue } from './StateProvider';
 import { store } from 'react-notifications-component';
 import Axios from "axios";
+import npmDate from 'date-and-time';
+
 
 const Card = ({name, id, imageUrl, price}) => {
   const [{basket},dispatch] = useStateValue();
@@ -22,7 +24,8 @@ const Card = ({name, id, imageUrl, price}) => {
   // setProductId(id);
   console.log(id);
 
-
+  var now = new Date();
+  var date1 = (npmDate.format(now, 'YYYY-MM-DD'));
   
   
   return (
@@ -54,6 +57,12 @@ const Card = ({name, id, imageUrl, price}) => {
             Axios.post("http://localhost:8090/cart",
          {
            productId: id
+        });
+
+        Axios.post("http://localhost:8090/sales",
+         {
+           productId: id,
+           date: date1
         });
      
           }}

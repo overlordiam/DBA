@@ -16,13 +16,8 @@ function Subtotal({length, total, grandTotal}) {
             <p>
               {/* Part of the homework */}
               Total Cost Of Products({length} items): <strong>${total}</strong>
-              <br />
-              <p>+ 18% GST</p>
             </p>
-            <p>
-              {/* Part of the homework */}
-              Grand Total: <strong>${grandTotal}</strong><br /> (Inclusive of all taxes)  
-            </p>
+            
             
           </>
         )}
